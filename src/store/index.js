@@ -67,7 +67,7 @@ const store = createStore({
         },
         {
           id: 7,
-          img: "https://raw.githubusercontent.com/pollipolinch/images/main/img/img-4.webp",
+          img: "https://raw.githubusercontent.com/pollipolinch/images/main/img/img-6.webp",
           title: "Apple AirPods",
           price: 9527,
           rate: 4.7,
@@ -87,7 +87,7 @@ const store = createStore({
         },
         {
           id: 9,
-          img: "https://raw.githubusercontent.com/pollipolinch/images/main/img/img-6.webp",
+          img: "https://raw.githubusercontent.com/pollipolinch/images/main/img/img-4.webp",
           title: "BOROFONE BO4",
           price: 7527,
           rate: 4.7,

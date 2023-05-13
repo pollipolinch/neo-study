@@ -3,9 +3,9 @@
     <Navbar></Navbar>
     <main>
       <section class="section-cart">
-        <h3 class="cart-title">{{ $t('footer.item-two') }}</h3>
+        <h3 class="cart-title">{{ $t("footer.item-two") }}</h3>
         <div class="buy-product-container">
-          <div>
+          <div class="products-container">
             <div
               v-for="(product, index) of buy_products"
               :key="index"
@@ -17,7 +17,8 @@
                   <h4 class="product-card-title">{{ product.title }}</h4>
                   <h4 class="product-card-price">{{ product.price }} ₽</h4>
                 </div>
-                <img @click="deleteProduct(product)"
+                <img
+                  @click="deleteProduct(product)"
                   class="product-card-icon-delete"
                   src="../assets/delete-icon.png"
                   alt=""
@@ -39,16 +40,18 @@
                     +
                   </div>
                 </div>
-                <h4 class="product-card-second-container-sum">{{ product.sum }} ₽</h4>
+                <h4 class="product-card-second-container-sum">
+                  {{ product.sum }} ₽
+                </h4>
               </div>
             </div>
           </div>
           <div class="total-sum">
             <div class="total-sum-container">
-              <h4 class="total-sum-title">{{ $t('cart.sum') }}</h4>
+              <h4 class="total-sum-title">{{ $t("cart.sum") }}</h4>
               <h4 class="total-sum-price">₽ {{ grandTotal }}</h4>
             </div>
-            <div class="total-sum-decor">{{ $t('cart.delivery') }}</div>
+            <div class="total-sum-decor">{{ $t("cart.delivery") }}</div>
           </div>
         </div>
       </section>
@@ -69,9 +72,9 @@ export default {
     Footer,
   },
   methods: {
-    ...mapMutations(["BUY_PRODUCTS","DELETE_PRODUCT"]),
+    ...mapMutations(["BUY_PRODUCTS", "DELETE_PRODUCT"]),
     changeCount(ell, product) {
-      console.log(product.count)
+      console.log(product.count);
       if (ell == "-" && product.count > 1) {
         product.count--;
         this.BUY_PRODUCTS({
@@ -86,13 +89,13 @@ export default {
         });
       }
     },
-    deleteProduct(ell){
-     this.DELETE_PRODUCT(ell.id)
-     this.BUY_PRODUCTS()
-    }
+    deleteProduct(ell) {
+      this.DELETE_PRODUCT(ell.id);
+      this.BUY_PRODUCTS();
+    },
   },
   computed: {
-    ...mapGetters(["buy_products","grandTotal"]),
+    ...mapGetters(["buy_products", "grandTotal"]),
   },
   mounted() {
     this.BUY_PRODUCTS();
@@ -273,4 +276,57 @@ export default {
   margin-left: 410px;
   margin-top: 10px;
 }
+@media screen and (max-width: 1200px) {
+  .buy-product-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .total-sum {
+    margin-left: 0px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .product-card {
+    width: 90%;
+  }
+  .product-card-second-container-sum {
+    margin-left: 60%;
+  }
+  .product-card-img {
+    width: 22%;
+  }
+  .product-card-icon-delete{
+    margin-left: 20%;
+  }
+  .products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 690px) {
+  .product-card-icon-delete{
+    margin-left: 10%;
+  }
+  .product-card-second-container-sum{
+    margin-left: 0%;
+  }
+  .product-card-second-container{
+    justify-content: space-around;
+  }
+  .product-card-count{
+    margin-left: 0px;
+  }
+  .product-card-title{
+    margin-right: 0px;
+  }
+  .product-card-img{
+    width: 25%;
+  }
+  }
+  @media screen and (max-width: 400px) {
+    .product-card-img{
+    width: 27%;
+  }
+  }
 </style>
