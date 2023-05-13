@@ -220,6 +220,7 @@ export default {
   display: block;
   margin: auto;
   margin-top: 20px;
+  padding-top: 20px;
 }
 .price-container_title {
   position: absolute;
@@ -290,14 +291,16 @@ export default {
   cursor: pointer;
 }
 .heart {
-  margin-top: 10px;
-  margin-left: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
   width: 35px;
   cursor: pointer;
 }
 .heart-active {
-  margin-top: 10px;
-  margin-left: 8px;
+  position: absolute;
+  top: 10px;
+  left: 8px;
   width: 40px;
   cursor: pointer;
 }
